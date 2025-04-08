@@ -5,13 +5,13 @@ import "./globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-  display: "swap", // ✅ helps with hydration consistency
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-  display: "swap", // ✅ same here
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -26,6 +26,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <head>
+        {/* ✅ This ensures proper mobile scaling */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
       <body className="antialiased">
         {children}
       </body>
