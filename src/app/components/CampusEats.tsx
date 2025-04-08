@@ -39,9 +39,10 @@ export default function HundredXFood() {
       } else if (delta < 0 && current > 0) {
         setCredits(credits + price);
         if (newQty === 0) {
-            const { [name]: removed, ...rest } = prev;
+            const { [name]: _, ...rest } = prev; // ✅ Clean and warning-free
             return rest;
           }
+          
           
         return { ...prev, [name]: newQty };
       }
