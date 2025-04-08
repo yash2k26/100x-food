@@ -46,9 +46,6 @@ export default function HundredXFood() {
           }
           
           
-              
-          }
-          
           
         return { ...prev, [name]: newQty };
       }
