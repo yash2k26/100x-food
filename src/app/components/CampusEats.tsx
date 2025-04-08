@@ -39,8 +39,14 @@ export default function HundredXFood() {
       } else if (delta < 0 && current > 0) {
         setCredits(credits + price);
         if (newQty === 0) {
-            const { [name]: _, ...rest } = prev; // ✅ Clean and warning-free
+            const rest = Object.fromEntries(
+              Object.entries(prev).filter(([key]) => key !== name)
+            );
             return rest;
+          }
+          
+          
+              
           }
           
           
